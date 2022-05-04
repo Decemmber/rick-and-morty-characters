@@ -1,10 +1,17 @@
 import React from 'react';
+import { Route, Routes } from 'react-router-dom';
+import { Header } from './components';
+import { Main, Favorites } from './pages';
 
 function App() {
   return (
-    <div>
-      <h1>Hello Me!</h1>
-    </div>
+    <>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="/favorites" element={<Favorites />} />
+      </Routes>
+    </>
   );
 }
 
