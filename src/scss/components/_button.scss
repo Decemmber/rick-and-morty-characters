@@ -1,0 +1,89 @@
+@import './../variables';
+
+.button {
+  height: 48px;
+  background-color: $main;
+  font-weight: 500;
+  font-size: 16px;
+  color: #fff;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 30px;
+  transition: background-color $duration ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $darkMain;
+  }
+
+  &__delimiter {
+    width: 1px;
+    height: 25px;
+    background-color: $gray;
+    margin-left: 14px;
+    margin-right: 14px;
+  }
+
+  &--favorites {
+    justify-content: space-between;
+    border: 1px solid $gray;
+    background-color: transparent;
+    transition: border $duration ease-in-out;
+    margin-left: 16px;
+
+    span {
+      color: $black;
+    }
+
+    &:hover {
+      border: 1px solid $main;
+      background-color: transparent;
+
+      span {
+        color: $main;
+      }
+
+      svg {
+        path {
+          fill: $main;
+        }
+      }
+    }
+  }
+
+  &--random-series {
+    img {
+      display: none;
+    }
+  }
+
+  &--outline {
+    color: $black;
+    width: 100%;
+    border: 1px solid $gray;
+    background-color: transparent;
+
+    &:hover {
+      color: $main;
+      background-color: $gray;
+    }
+  }
+
+  &--full-width {
+    width: 100%;
+  }
+}
+
+@media (max-width: 599px) {
+  .button--random-series {
+    img {
+      display: block;
+    }
+    span {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,126 @@
+@import './../variables';
+
+.sidebar {
+  background-color: #fff;
+  border-radius: 12px;
+  border: 1px solid $gray;
+  padding: 24px;
+  min-width: 253px;
+  flex-grow: 0;
+}
+
+@media (max-width: 920px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    border-radius: 0;
+    box-shadow: 1px 12px 11px 3px #aaaaaa;
+    overflow-y: scroll;
+    transform: translateX(120%);
+    transition: transform $duration ease-in;
+
+    &--mobile-active {
+      transform: translateX(0%);
+    }
+  }
+}
+
+.widget + .widget {
+  margin-top: 24px;
+}
+
+.widget {
+  &__title {
+    position: relative;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    color: $black;
+    margin-bottom: 16px;
+  }
+
+  &__show-hidden {
+    background: transparent;
+    display: inline-block;
+    padding: 0;
+    border: none;
+    font-weight: 500;
+    font-size: 16px;
+    color: $main;
+    cursor: pointer;
+    transition: color $duration ease-in-out;
+    margin-top: 16px;
+  }
+
+  &__show-hidden:hover {
+    color: $darkMain;
+    text-decoration: underline;
+  }
+}
+
+/* Checkbox */
+.checkbox {
+  display: flex;
+  cursor: pointer;
+
+  &__real {
+    width: 1px;
+    height: 1px;
+    position: absolute;
+    opacity: 0;
+    appearance: none;
+  }
+
+  &__fake {
+    flex-shrink: 0;
+    position: relative;
+    display: inline-block;
+    vertical-align: bottom;
+    margin-right: 12px;
+    width: 24px;
+    height: 24px;
+    background-color: transparent;
+    border: 1px solid $gray;
+    border-radius: 2px;
+  }
+
+  &__title {
+    font-weight: 400;
+    font-size: 16px;
+    color: $textColor;
+  }
+}
+
+.checkbox + .checkbox {
+  margin-top: 16px;
+}
+
+.checkbox--hidden {
+  display: none;
+}
+
+.checkbox__real:checked + .checkbox__fake {
+  background-color: $main;
+  border: none;
+}
+
+.checkbox__real:checked + .checkbox__fake::before {
+  content: '';
+  position: absolute;
+  height: 18px;
+  width: 18px;
+  top: 50%;
+  left: 50%;
+  background-image: url(../../assets/img/check.svg);
+  background-size: initial;
+  background-position: center;
+  transform: translate(-50%, -50%);
+}
+
+.checkbox__real:checked ~ .checkbox__title {
+  font-weight: 500;
+  color: $black;
+}
+/* /Checkbox */
